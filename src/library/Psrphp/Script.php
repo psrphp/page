@@ -1,9 +1,15 @@
 <?php
 
-use PsrPHP\Framework\Script;
+declare(strict_types=1);
 
-return [
-    'install' => function () {
+namespace App\Psrphp\Page\Psrphp;
+
+use PsrPHP\Framework\Script as FrameworkScript;
+
+class Script
+{
+    public static function onInstall()
+    {
         $sql = <<<'str'
 DROP TABLE IF EXISTS `prefix_psrphp_page`;
 CREATE TABLE `prefix_psrphp_page` (
@@ -15,12 +21,14 @@ CREATE TABLE `prefix_psrphp_page` (
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 str;
-        Script::execSql($sql);
-    },
-    'unInstall' => function () {
+        FrameworkScript::execSql($sql);
+    }
+
+    public static function onUnInstall()
+    {
         $sql = <<<'str'
 DROP TABLE IF EXISTS `prefix_psrphp_page`;
 str;
-        Script::execSql($sql);
-    },
-];
+        FrameworkScript::execSql($sql);
+    }
+}
