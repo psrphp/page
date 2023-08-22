@@ -44,6 +44,7 @@ class Page implements MiddlewareInterface
             }
 
             if ($page = $db->get('psrphp_page', '*', [
+                'state' => 1,
                 'page' => $path == '' ? '/' : $path,
             ])) {
                 if ($config->get('site.is_close@psrphp.web')) {
