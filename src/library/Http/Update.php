@@ -8,12 +8,12 @@ use App\Psrphp\Admin\Http\Common;
 use App\Psrphp\Admin\Lib\Response;
 use PsrPHP\Database\Db;
 use PsrPHP\Form\Builder;
-use PsrPHP\Form\Component\Col;
-use PsrPHP\Form\Component\Row;
-use PsrPHP\Form\Field\Code;
-use PsrPHP\Form\Field\Hidden;
-use PsrPHP\Form\Field\Input;
-use PsrPHP\Form\Field\Radio;
+use PsrPHP\Form\Col;
+use PsrPHP\Form\Row;
+use PsrPHP\Form\Code;
+use PsrPHP\Form\Input;
+use PsrPHP\Form\Radio;
+use PsrPHP\Form\Radios;
 use PsrPHP\Request\Request;
 
 class Update extends Common
@@ -29,13 +29,13 @@ class Update extends Common
         $form->addItem(
             (new Row())->addCol(
                 (new Col('col-md-8'))->addItem(
-                    new Hidden('id', $version['id']),
-                    (new Input('页面', 'page', $version['page']))->set('help', '例如：/, /help, /about.html, /page/map.php'),
-                    (new Code('模板', 'tpl', $version['tpl']))->set('help', '支持模板标签'),
-                    new Radio('是否发布', 'state', $version['state'], [
-                        '1' => '是',
-                        '0' => '否',
-                    ]),
+                    (new Input('id', 'id', $version['id']))->setType('hidden'),
+                    (new Input('页面', 'page', $version['page']))->setHelp('例如：/, /help, /about.html, /page/map.php'),
+                    (new Code('模板', 'tpl', $version['tpl']))->setHelp('支持模板标签'),
+                    (new Radios('是否发布'))->addRadio(
+                        new Radio('否', 'state', 0, $version['state'] == 0),
+                        new Radio('是', 'state', 1, $version['state'] == 1),
+                    ),
                     new Input('备注', 'tips', $version['tips'])
                 )
             )
