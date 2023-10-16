@@ -38,7 +38,7 @@
                 <a href="{:$router->build('/psrphp/page/delete', ['id'=>$vo['id']])}" onclick="return confirm('确定删除吗？删除后不可恢复！');">删除</a>
             </td>
             <td>
-                <a href="{:$router->build('')}{$vo.page}" target="_blank">访问</a>
+                <a href="{:$router->build('/psrphp/page/show', ['id'=>$vo['id']])}" target="_blank">访问</a>
             </td>
         </tr>
         {/foreach}
