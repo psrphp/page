@@ -14,7 +14,7 @@ use PsrPHP\Form\Code;
 use PsrPHP\Form\Input;
 use PsrPHP\Form\Radio;
 use PsrPHP\Form\Radios;
-use PsrPHP\Request\Request;
+use PsrPHP\Framework\Request;
 
 class Create extends Common
 {

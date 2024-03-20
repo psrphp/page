@@ -7,9 +7,9 @@ namespace App\Psrphp\Page\Http;
 use App\Psrphp\Admin\Lib\Response;
 use App\Psrphp\Web\Http\Common;
 use PsrPHP\Database\Db;
-use PsrPHP\Request\Request;
+use PsrPHP\Framework\Request;
 use PsrPHP\Router\Router;
-use PsrPHP\Template\Template;
+use PsrPHP\Framework\Template;
 
 class Show extends Common
 {

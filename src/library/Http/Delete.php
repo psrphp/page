@@ -7,7 +7,7 @@ namespace App\Psrphp\Page\Http;
 use App\Psrphp\Admin\Http\Common;
 use App\Psrphp\Admin\Lib\Response;
 use PsrPHP\Database\Db;
-use PsrPHP\Request\Request;
+use PsrPHP\Framework\Request;
 
 class Delete extends Common
 {

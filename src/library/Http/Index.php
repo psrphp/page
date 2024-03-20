@@ -6,8 +6,8 @@ namespace App\Psrphp\Page\Http;
 
 use App\Psrphp\Admin\Http\Common;
 use PsrPHP\Database\Db;
-use PsrPHP\Request\Request;
-use PsrPHP\Template\Template;
+use PsrPHP\Framework\Request;
+use PsrPHP\Framework\Template;
 
 class Index extends Common
 {
